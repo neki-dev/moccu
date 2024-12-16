@@ -2,7 +2,14 @@
   "name": "moccu",
   "description": "Easy mock server for front-end applications",
   "version": "0.1.2",
-  "keywords": [],
+  "keywords": [
+    "mock",
+    "api",
+    "server",
+    "fake",
+    "response",
+    "serve"
+  ],
   "license": "MIT",
   "author": {
     "name": "Nikita Galadiy",
