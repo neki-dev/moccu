@@ -1,7 +1,7 @@
 {
   "name": "moccu",
   "description": "Easy mock server for front-end applications",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "keywords": [],
   "license": "MIT",
   "author": {
@@ -9,13 +9,13 @@
     "email": "dev@neki.guru",
     "url": "https://neki.guru/"
   },
-  "main": "./dist/index.js",
+  "main": "./dist/export.js",
   "bin": {
     "moccu": "./bin/cli.ts"
   },
   "scripts": {
     "build": "tsc",
-    "start": "ts-node ./server/boot.ts",
+    "start": "ts-node ./server/start.ts",
     "lint": "eslint ./src --fix"
   },
   "dependencies": {
