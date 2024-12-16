@@ -1,0 +1,36 @@
+{
+  "name": "moccu",
+  "description": "Easy mock server for front-end applications",
+  "version": "0.1.0",
+  "keywords": [],
+  "license": "MIT",
+  "author": {
+    "name": "Nikita Galadiy",
+    "email": "dev@neki.guru",
+    "url": "https://neki.guru/"
+  },
+  "main": "./dist/index.js",
+  "bin": {
+    "moccu": "./bin/cli.ts"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node ./server/boot.ts",
+    "lint": "eslint ./src --fix"
+  },
+  "dependencies": {
+    "express": "4.21.2",
+    "ts-node": "10.9.2"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.0",
+    "@types/node": "20.10.5",
+    "eslint": "8.57.0",
+    "typescript": "5.3.3",
+    "typescript-eslint": "7.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neki-dev/moccu.git"
+  }
+}
