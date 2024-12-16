@@ -2,13 +2,19 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MoccuRoute = void 0;
 class MoccuRoute {
-    constructor(app, base, { status = 200, response, method, path }) {
-        app[method](base + path, (req, res) => {
+    constructor(app, config, { status = 200, response, method, path }) {
+        var _a;
+        const fullPath = ((_a = config.base) !== null && _a !== void 0 ? _a : '') + path;
+        app[method](fullPath, (req, res) => {
             const body = typeof response === 'function' ? response(req) : response;
-            console.log(`-> Route ${method.toUpperCase()} ${base + path} response`, body);
-            res.status(status).send(JSON.stringify(body));
+            if (config.log) {
+                console.log(`> Route ${method.toUpperCase()} ${fullPath} response`, body);
+            }
+            res.status(status).send(body && JSON.stringify(body));
         });
-        console.log(`~ Route ${method.toUpperCase()} ${base + path} mocked`);
+        if (config.log) {
+            console.log(`~ Route ${method.toUpperCase()} ${fullPath} mocked`);
+        }
     }
 }
 exports.MoccuRoute = MoccuRoute;

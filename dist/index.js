@@ -20,12 +20,12 @@ function boot() {
     return __awaiter(this, void 0, void 0, function* () {
         const app = (0, express_1.default)();
         app.use(express_1.default.json());
-        const { port, base, routes } = yield (0, config_1.getConfig)();
-        routes.forEach((route) => {
-            new route_1.MoccuRoute(app, base !== null && base !== void 0 ? base : "", route);
+        const config = yield (0, config_1.getConfig)();
+        config.routes.forEach((route) => {
+            new route_1.MoccuRoute(app, config, route);
         });
-        app.listen(port, () => {
-            console.log(`Mock server is running on http://localhost:${port}`);
+        app.listen(config.port, () => {
+            console.log(`Mock server is running on http://localhost:${config.port}`);
         });
     });
 }

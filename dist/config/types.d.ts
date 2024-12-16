@@ -3,4 +3,5 @@ export type MoccuConfig = {
     base?: string;
     port: number;
     routes: MoccuRouteConfig[];
+    log?: boolean;
 };

@@ -45,14 +45,23 @@ function getConfig() {
             const { default: config } = yield Promise.resolve(`${configPath}`).then(s => __importStar(require(s)));
             return config;
         }
-        const defaultConfig = {
+        (0, fs_1.writeFileSync)(configPath, `import type { MoccuConfig } from 'moccu';
+
+const config: MoccuConfig = {
+  port: 3000,
+  base: '',
+  log: true,
+  routes: [],
+};
+
+export default config;
+`);
+        return {
             port: 3000,
-            base: '/api',
+            base: '',
+            log: true,
             routes: [],
         };
-        const content = `export default ${JSON.stringify(defaultConfig, null, 2)};`;
-        (0, fs_1.writeFileSync)(configPath, content);
-        return defaultConfig;
     });
 }
 exports.getConfig = getConfig;
