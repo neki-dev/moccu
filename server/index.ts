@@ -5,10 +5,22 @@ import { MoccuRoute } from "./route";
 
 export class MoccuServer {
   static async boot() {
-    const app = express();
-    app.use(express.json());
-
     const config = await MoccuStorage.load();
+
+    const app = express();
+
+    app.use(express.json());
+    app.use((req, res, next) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Headers', '*');
+      res.setHeader('Access-Control-Allow-Methods', '*');
+
+      if (req.method === 'OPTIONS') {
+        res.sendStatus(204);
+      } else {
+        next();
+      }
+    });
 
     config.routes.forEach((route) => {
       new MoccuRoute(app, config, route);
