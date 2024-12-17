@@ -1,5 +1,5 @@
 import path from "path";
-import type { MoccuConfig } from "./types";
+import type { Config } from "./types";
 import { existsSync, writeFileSync } from "fs";
 import { STORAGE_FILE_EXTENSION_DEFAULT, STORAGE_FILE_EXTENSIONS, STORAGE_FILE_NAME } from "./const";
 
@@ -27,7 +27,7 @@ export class MoccuStorage {
   private static async read(extension: string) {
     const configPath = this.getPath(extension);
     const { default: config } = await import(configPath);
-    return config as MoccuConfig;
+    return config as Config;
   }
 
   private static write(extension: string) {
@@ -41,9 +41,9 @@ export class MoccuStorage {
   }
 
   private static getDefault() {
-    return `import type { MoccuConfig } from 'moccu';
+    return `import type { Config } from 'moccu';
 
-const config: MoccuConfig = {
+const config: Config = {
   /**
    * Server port
    */

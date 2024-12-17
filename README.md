@@ -63,13 +63,13 @@ export default config;
 
 `./__mocks__/get-user.ts`
 ```ts
-import type { MoccuRouteConfig, Request } from 'moccu';
+import type { Route, Request } from 'moccu';
 
-const route: MoccuRouteConfig = {
+const route: Route = {
   /**
    * Request path
    */
-  path: '/user',
+  path: '/user/:userId',
 
   /**
    * Request method

@@ -1,6 +1,6 @@
 import type { Request } from 'express';
 
-export type MoccuRouteConfig<T extends object = any> = {
+export type Route<T extends object = any> = {
   /**
    * Request path
    */

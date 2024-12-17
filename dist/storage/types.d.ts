@@ -1,5 +1,5 @@
-import type { MoccuRouteConfig } from "../route/types";
-export type MoccuConfig = {
+import type { Route } from "../route/types";
+export type Config = {
     /**
      * Server port
      */
@@ -11,7 +11,7 @@ export type MoccuConfig = {
     /**
      * List of mocked routes
      */
-    routes: MoccuRouteConfig[];
+    routes: Route[];
     /**
      * Display logs
      */

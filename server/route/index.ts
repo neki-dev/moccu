@@ -1,13 +1,13 @@
 import type { Request, Response } from "express";
 import type { Express } from "express";
-import type { MoccuRouteConfig } from "./types";
-import type { MoccuConfig } from "../storage/types";
+import type { Route } from "./types";
+import type { Config } from "../storage/types";
 
 export class MoccuRoute {
   constructor(
     app: Express,
-    config: MoccuConfig,
-    { status = 200, delay = 0, response, method, path }: MoccuRouteConfig
+    config: Config,
+    { status = 200, delay = 0, response, method, path }: Route
   ) {
     const fullPath = (config.base ?? "") + path;
 
