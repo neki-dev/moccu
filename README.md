@@ -63,23 +63,23 @@ export default config;
 
 `./__mocks__/get-user.ts`
 ```ts
-import type { MoccuRouteConfig } from 'moccu';
+import type { MoccuRouteConfig, Request } from 'moccu';
 
 const route: MoccuRouteConfig = {
   /**
    * Request path
    */
-  path: '/user/:userId'
+  path: '/user',
 
   /**
    * Request method
    */
-  method: 'get';
+  method: 'get',
 
   /**
    * Response status
    */
-  status: 200;
+  status: 200,
 
   /**
    * Response body
@@ -88,12 +88,12 @@ const route: MoccuRouteConfig = {
     return {
       text: `Hello, ${req.params.userId}`,
     };
-  };
+  },
 
   /**
    * Response delay
    */
-  delay: 100;
+  delay: 100,
 };
 
 export default route;
@@ -109,11 +109,10 @@ import getUser from './__mocks__/get-user';
 
 const config: MoccuConfig = {
   port: 3000,
-  base: '',
+  base: '/api',
   routes: [
     getUser,
   ],
-  log: true,
 };
 
 export default config;
