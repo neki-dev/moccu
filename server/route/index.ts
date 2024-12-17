@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express';
 import type { Express } from 'express';
 import type { MoccuRouteConfig } from './types';
-import type { MoccuConfig } from '../config/types';
+import type { MoccuConfig } from '../storage/types';
 
 export class MoccuRoute {
   constructor(app: Express, config: MoccuConfig, { status = 200, response, method, path }: MoccuRouteConfig) {

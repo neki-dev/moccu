@@ -1,3 +1,4 @@
-import type { MoccuConfig } from "./config/types";
+import type { MoccuConfig } from "./storage/types";
 import type { MoccuRouteConfig } from "./route/types";
-export type { MoccuConfig, MoccuRouteConfig };
+import type { Request } from 'express';
+export type { MoccuConfig, MoccuRouteConfig, Request };

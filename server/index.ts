@@ -1,6 +1,6 @@
 import express from "express";
 
-import { getConfig } from "./config";
+import { MoccuStorage } from "./storage";
 import { MoccuRoute } from "./route";
 
 export class MoccuServer {
@@ -8,7 +8,7 @@ export class MoccuServer {
     const app = express();
     app.use(express.json());
 
-    const config = await getConfig();
+    const config = await MoccuStorage.load();
 
     config.routes.forEach((route) => {
       new MoccuRoute(app, config, route);
