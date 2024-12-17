@@ -28,9 +28,9 @@ moccu
 Create and configure `moccu.config.ts` file at project root. Or it will created automatically on the first start.
 
 ```ts
-import type { MoccuConfig } from 'moccu';
+import type { Config } from 'moccu';
 
-const config: MoccuConfig = {
+const config: Config = {
   /**
    * Server port
    */
@@ -103,11 +103,11 @@ export default route;
 
 `./moccu.config.ts`
 ```ts
-import type { MoccuConfig } from 'moccu';
+import type { Config } from 'moccu';
 
 import getUser from './__mocks__/get-user';
 
-const config: MoccuConfig = {
+const config: Config = {
   port: 3000,
   base: '/api',
   routes: [

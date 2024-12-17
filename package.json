@@ -1,7 +1,7 @@
 {
   "name": "moccu",
   "description": "Simple mock server for front-end applications",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "mock",
     "api",
