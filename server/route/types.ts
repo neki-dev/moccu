@@ -19,5 +19,10 @@ export type MoccuRouteConfig<T extends object = any> = {
   /**
    * Response body
    */
-  response: T | ((req: Request) => T);
+  response: T | ((req: Request) => Promise<T>);
+
+  /**
+   * Response delay
+   */
+  delay?: number;
 };

@@ -57,7 +57,10 @@ const config: MoccuConfig = {
   /**
    * List of mocked routes
    */
-  routes: [],
+  routes: [
+    // See example
+    // https://github.com/neki-dev/moccu?tab=readme-ov-file#mock-route
+  ],
 
   /**
    * Display logs

@@ -69,7 +69,7 @@ const route: MoccuRouteConfig = {
   /**
    * Request path
    */
-  path: '/user'
+  path: '/user/:userId'
 
   /**
    * Request method
@@ -84,11 +84,16 @@ const route: MoccuRouteConfig = {
   /**
    * Response body
    */
-  response: (req) => {
+  response: (req: Request) => {
     return {
-      text: 'Hello, Moccu!',
+      text: `Hello, ${req.params.userId}`,
     };
   };
+
+  /**
+   * Response delay
+   */
+  delay: 100;
 };
 
 export default route;
