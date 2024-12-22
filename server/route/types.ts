@@ -19,7 +19,7 @@ export type Route<T extends object = any> = {
   /**
    * Response body
    */
-  response: T | ((req: Request) => Promise<T>);
+  response?: T | ((req: Request) => Promise<T>);
 
   /**
    * Response delay
