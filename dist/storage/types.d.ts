@@ -1,4 +1,5 @@
 import type { Route } from "../route/types";
+import type { LoggerLevel } from "../logger/types";
 export type Config = {
     /**
      * Server port
@@ -13,7 +14,7 @@ export type Config = {
      */
     routes: Route[];
     /**
-     * Display logs
+     * Logger level
      */
-    log?: boolean;
+    logger?: LoggerLevel;
 };

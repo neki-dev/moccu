@@ -29,6 +29,7 @@ Create and configure `moccu.config.ts` file at project root. Or it will created 
 
 ```ts
 import type { Config } from 'moccu';
+import { LoggerLevel } from 'moccu';
 
 const config: Config = {
   /**
@@ -47,9 +48,9 @@ const config: Config = {
   routes: [],
 
   /**
-   * Display logs
+   * LoggerLevel
    */
-  log: true,
+  logger: LoggerLevel.Main,
 };
 
 export default config;

@@ -2,10 +2,15 @@ import express from "express";
 
 import { MoccuStorage } from "./storage";
 import { MoccuRoute } from "./route";
+import { Logger } from "./logger";
 
 export class MoccuServer {
   static async boot() {
     const config = await MoccuStorage.load();
+
+    if (config.logger) {
+      Logger.setLevel(config.logger);
+    }
 
     const app = express();
 
@@ -27,7 +32,7 @@ export class MoccuServer {
     });
 
     app.listen(config.port, () => {
-      console.log(`Mock server is running on http://localhost:${config.port}`);
+      Logger.print(`Mock server is running on ` + `http://localhost:${config.port}`.underline);
     });
   }
 }

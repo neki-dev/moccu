@@ -1,7 +1,9 @@
 import type { Request, Response } from "express";
 import type { Express } from "express";
+
 import type { Route } from "./types";
 import type { Config } from "../storage/types";
+import { Logger } from "../logger";
 
 export class MoccuRoute {
   constructor(
@@ -10,6 +12,7 @@ export class MoccuRoute {
     { status, delay = 0, response, method, path }: Route
   ) {
     const fullPath = (config.base ?? "") + path;
+    const fullRoute = `${method.toUpperCase().green} ${fullPath.blue}`;
 
     app[method](fullPath, async (req: Request, res: Response) => {
       if (delay > 0) {
@@ -21,28 +24,17 @@ export class MoccuRoute {
           ? await response(req)
           : response;
 
-        if (config.log) {
-          console.log(
-            `> Route ${method.toUpperCase()} ${fullPath} responsed`,
-            body
-          );
-        }
+        Logger.debug(`Route ${fullRoute} responsed`, body);
 
         res.status(status ?? 200).send(body && JSON.stringify(body));
       } else {
-        if (config.log) {
-          console.log(
-            `> Route ${method.toUpperCase()} ${fullPath} responsed empty body`
-          );
-        }
+        Logger.debug(`Route ${fullRoute} responsed empty body`);
 
         res.status(status ?? 204).end();
       }
     });
 
-    if (config.log) {
-      console.log(`~ Route ${method.toUpperCase()} ${fullPath} mocked`);
-    }
+    Logger.print(`~ Mock ${fullRoute}`);
   }
 
   private async delay(ms: number) {

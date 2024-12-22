@@ -1,6 +1,7 @@
 import path from "path";
-import type { Config } from "./types";
 import { existsSync, writeFileSync } from "fs";
+
+import type { Config } from "./types";
 import { STORAGE_FILE_EXTENSION_DEFAULT, STORAGE_FILE_EXTENSIONS, STORAGE_FILE_NAME } from "./const";
 
 export class MoccuStorage {
@@ -42,6 +43,7 @@ export class MoccuStorage {
 
   private static getDefault() {
     return `import type { Config } from 'moccu';
+import { LoggerLevel } from 'moccu';
 
 const config: Config = {
   /**
@@ -63,9 +65,9 @@ const config: Config = {
   ],
 
   /**
-   * Display logs
+   * Logger level
    */
-  log: true,
+  logger: LoggerLevel.Main,
 };
 
 export default config;
