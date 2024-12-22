@@ -1,7 +1,7 @@
 ## 📟 Moccu
 [![Npm package version](https://badgen.net/npm/v/moccu)](https://npmjs.com/package/moccu)
 
-Simple mock server for front-end applications
+Simple typescript mock server with memory context
 
 .
 
