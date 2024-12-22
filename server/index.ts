@@ -31,6 +31,11 @@ export class MoccuServer {
       new MoccuRoute(config, route);
     });
 
+    this.app.use((req, res) => {
+      Logger.warn(`Route ${req.method.green} ${req.path.blue} isn't mocked`);
+      res.sendStatus(404);
+    });
+
     this.app.listen(config.port, () => {
       Logger.print(`Mock server is running on ` + `http://localhost:${config.port}`.underline);
     });

@@ -1,5 +1,5 @@
 import { Context } from "../server/context";
-import type { Request } from "../server/export";
+import type { Request, Route } from "../server/export";
 import type { MockContext } from "./types";
 
 export default [
@@ -21,4 +21,4 @@ export default [
       ctx.name = req.body.value ?? 'Unnamed';
     },
   },
-];
+] as Route[];

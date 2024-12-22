@@ -20,11 +20,22 @@ export class Logger {
     console.log('DEBUG'.bgCyan.white, ...chunks);
   }
 
-  public static print(message: string) {
-    if (this.level === LoggerLevel.Off ) {
+  public static warn(...chunks: any[]) {
+    if (
+      this.level === LoggerLevel.Off ||
+      this.level === LoggerLevel.Main
+    ) {
       return;
     }
 
-    console.log(message);
+    console.log('WARN'.bgYellow.white, ...chunks);
+  }
+
+  public static print(...chunks: any[]) {
+    if (this.level === LoggerLevel.Off) {
+      return;
+    }
+
+    console.log(...chunks);
   }
 }
