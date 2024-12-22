@@ -5,6 +5,8 @@ import { MoccuRoute } from "./route";
 import { Logger } from "./logger";
 
 export class MoccuServer {
+  public static app = express();
+
   static async boot() {
     const config = await MoccuStorage.load();
 
@@ -12,10 +14,8 @@ export class MoccuServer {
       Logger.setLevel(config.logger);
     }
 
-    const app = express();
-
-    app.use(express.json());
-    app.use((req, res, next) => {
+    this.app.use(express.json());
+    this.app.use((req, res, next) => {
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Headers', '*');
       res.setHeader('Access-Control-Allow-Methods', '*');
@@ -28,10 +28,10 @@ export class MoccuServer {
     });
 
     config.routes.forEach((route) => {
-      new MoccuRoute(app, config, route);
+      new MoccuRoute(config, route);
     });
 
-    app.listen(config.port, () => {
+    this.app.listen(config.port, () => {
       Logger.print(`Mock server is running on ` + `http://localhost:${config.port}`.underline);
     });
   }

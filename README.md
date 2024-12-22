@@ -118,3 +118,47 @@ const config: Config = {
 
 export default config;
 ```
+
+.
+
+* ## Context example
+
+We can change mock responses based on the global context between requests.
+
+`./moccu.config.ts`
+```ts
+import type { Config, Request } from 'moccu';
+import { Context } from 'moccu';
+
+type MockContext = {
+  name?: string;
+};
+
+const config: Config = {
+  port: 3000,
+  base: '/api',
+  routes: [
+    {
+      method: 'get',
+      path: '/greet',
+      response: () => {
+        const ctx = Context.use<MockContext>('testContext');
+        return {
+          message: `Hello, ${ctx.name ?? 'Noname'}!`,
+        };
+      },
+    },
+    {
+      method: 'put',
+      path: '/rename',
+      response: (req: Request) => {
+        const ctx = Context.use<MockContext>('testContext');
+        ctx.name = req.body.value ?? 'Unnamed';
+      },
+    },
+  ],
+};
+
+export default config;
+```
+
