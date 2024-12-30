@@ -47,7 +47,7 @@ const config: Config = {
   routes: [],
 
   /**
-   * LoggerLevel
+   * Logger level
    */
   logger: 'main',
 };
@@ -160,4 +160,3 @@ const config: Config = {
 
 export default config;
 ```
-
