@@ -4,7 +4,6 @@ import type { Request } from 'express';
 
 export type { Config, Route, Request };
 
-import { LoggerLevel } from "./logger/types";
 import { Context } from "./context";
 
-export { LoggerLevel, Context };
+export { Context };

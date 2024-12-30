@@ -8,7 +8,7 @@ export class Context {
       this.memory.set(key, ctx);
     }
 
-    return ctx as T;
+    return ctx as Partial<T>;
   }
 
   public static clear(key?: string) {

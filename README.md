@@ -29,7 +29,6 @@ Create and configure `moccu.config.ts` file at project root. Or it will created 
 
 ```ts
 import type { Config } from 'moccu';
-import { LoggerLevel } from 'moccu';
 
 const config: Config = {
   /**
@@ -50,7 +49,7 @@ const config: Config = {
   /**
    * LoggerLevel
    */
-  logger: LoggerLevel.Main,
+  logger: 'main',
 };
 
 export default config;
@@ -131,7 +130,7 @@ import type { Config, Request } from 'moccu';
 import { Context } from 'moccu';
 
 type MockContext = {
-  name?: string;
+  name: string;
 };
 
 const config: Config = {

@@ -43,7 +43,6 @@ export class MoccuStorage {
 
   private static getDefault() {
     return `import type { Config } from 'moccu';
-import { LoggerLevel } from 'moccu';
 
 const config: Config = {
   /**
@@ -67,7 +66,7 @@ const config: Config = {
   /**
    * Logger level
    */
-  logger: LoggerLevel.Main,
+  logger: 'main',
 };
 
 export default config;

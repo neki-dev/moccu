@@ -1,14 +1,13 @@
-export declare enum LoggerLevel {
-    /**
-     * Disable all logs
-     */
-    Off = "Off",
-    /**
-     * Only main server infomation
-     */
-    Main = "Main",
-    /**
-     * All logs with requests debug
-     */
-    Debug = "Debug"
-}
+export type LoggerLevel = 
+/**
+ * Disable all logs
+ */
+'off' | 
+/**
+ * Only main server infomation
+ */
+'main' | 
+/**
+ * All logs with requests debug
+ */
+'debug';

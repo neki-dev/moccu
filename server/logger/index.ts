@@ -1,9 +1,9 @@
-import { LoggerLevel } from './types';
+import type { LoggerLevel } from './types';
 
 import 'colors';
 
 export class Logger {
-  private static level: LoggerLevel = LoggerLevel.Main;
+  private static level: LoggerLevel = 'main';
 
   public static setLevel(level: LoggerLevel) {
     this.level = level;
@@ -11,8 +11,8 @@ export class Logger {
 
   public static debug(...chunks: any[]) {
     if (
-      this.level === LoggerLevel.Off ||
-      this.level === LoggerLevel.Main
+      this.level === 'off' ||
+      this.level === 'main'
     ) {
       return;
     }
@@ -22,8 +22,8 @@ export class Logger {
 
   public static warn(...chunks: any[]) {
     if (
-      this.level === LoggerLevel.Off ||
-      this.level === LoggerLevel.Main
+      this.level === 'off' ||
+      this.level === 'main'
     ) {
       return;
     }
@@ -32,7 +32,7 @@ export class Logger {
   }
 
   public static print(...chunks: any[]) {
-    if (this.level === LoggerLevel.Off) {
+    if (this.level === 'off') {
       return;
     }
 
